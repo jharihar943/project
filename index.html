@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvitiQ - Code Runner</title>
+    <link rel="stylesheet" href="style.css?v=14">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="InvitiQ" class="logo-img">
+        </div>
+        <nav>
+            <button class="nav-btn" id="languageBtn">Language</button>
+            <button class="nav-btn" id="backHomeBtn">Back to Home</button>
+            <button class="nav-btn primary" id="askDoubtBtn">Ask Doubt</button>
+        </nav>
+    </header>
+
+    <div class="language-dropdown" id="languageDropdown">
+        <button class="lang-option" data-lang="python">Python</button>
+        <button class="lang-option" data-lang="java">Java</button>
+        <button class="lang-option" data-lang="sql">SQL</button>
+        <button class="lang-option" data-lang="r">R</button>
+        <button class="lang-option" data-lang="c">C</button>
+        <button class="lang-option" data-lang="javascript">JavaScript</button>
+        <button class="lang-option" data-lang="cpp">C++</button>
+        <button class="lang-option" data-lang="go">Go</button>
+        <button class="lang-option" data-lang="php">PHP</button>
+        <button class="lang-option" data-lang="typescript">TypeScript</button>
+    </div>
+
+    <main class="container">
+        <div class="editor-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <img src="ChatGPT_Image_Dec_25__2025__03_42_37_PM-removebg-preview.png" alt="CODE RUNNER" class="code-runner-logo">
+                </div>
+                <div class="controls">
+                    <select class="language-selector" id="languageSelector">
+                        <option value="python" selected>Python</option>
+                        <option value="java">Java</option>
+                        <option value="sql">SQL</option>
+                        <option value="r">R</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="go">Go</option>
+                        <option value="php">PHP</option>
+                        <option value="typescript">TypeScript</option>
+                    </select>
+                    <button class="select-all-btn" id="selectAllBtn" title="Select All (Ctrl+A)">Select All</button>
+                    <button class="run-btn" id="runBtn">Run ▶</button>
+                </div>
+            </div>
+            <div class="editor-wrapper">
+                <div class="line-numbers" id="lineNumbers">1</div>
+                <div class="syntax-highlight-overlay" id="syntaxOverlay"></div>
+                <textarea class="code-editor" id="codeEditor" spellcheck="false" autocomplete="off"># Python Code
+def greet(name):
+    return f"Hello {name} from InvitiQ!"
+
+print(greet("World"))
+print("Python is running!")</textarea>
+                <!-- Autocomplete Suggestions -->
+                <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
+            </div>
+            <div class="input-section">
+                <label for="userInputs">📝 Input values (one per line for multiple inputs):</label>
+                <textarea id="userInputs" placeholder="Enter input values here...&#10;Example:&#10;5&#10;10&#10;Hello"></textarea>
+            </div>
+        </div>
+
+        <div class="output-section" id="outputSection">
+            <div class="section-header">
+                <div class="section-title">OUTPUT</div>
+                <button class="clear-btn" id="clearBtn">Clear</button>
+            </div>
+            <div class="output-display" id="output">
+                <div class="output-placeholder">Run your code to see output...</div>
+            </div>
+        </div>
+
+        <!-- Chatbot Panel -->
+        <div class="chatbot-section" id="chatbotSection">
+            <div class="section-header">
+                <div class="section-title">💬 Ask Doubt</div>
+                <button class="close-chat-btn" id="closeChatBtn">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot-message">
+                    <div class="message-content">
+                        👋 Hi! I'm your coding assistant. Ask me anything about Python programming!
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your question here...">
+                <button class="send-btn" id="sendBtn">Send</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Input Modal -->
+    <div class="input-modal" id="inputModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="icon">⌨️</span>
+                <span id="inputPrompt">Enter value:</span>
+            </div>
+            <input type="text" id="modalInput" placeholder="Type your input here..." autocomplete="off">
+            <button class="modal-btn" id="submitInput">Submit</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=8.0"></script>
+</body>
+</html>
